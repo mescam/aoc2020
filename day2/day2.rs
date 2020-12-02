@@ -22,19 +22,13 @@ fn parse_to_entry(input: &str) -> Entry {
 fn validate(input: &Entry) -> bool {
     let collection: Vec<char> =  input.pwd.as_str().chars().collect();
     let ns = collection.iter().fold(0, |acc, &x| acc + ((x == input.lttr) as i32));
-    if input.lo <= ns && ns <= input.hi {
-        return true;
-    }
-    return false;
+    (input.lo <= ns) && (ns <= input.hi)    
 }
 
 fn validate2(input: &Entry) -> bool {
     let lo = input.pwd.chars().nth((input.lo-1) as usize).unwrap();
     let hi = input.pwd.chars().nth((input.hi-1) as usize).unwrap();
-    if (lo == input.lttr) ^ (hi == input.lttr) {
-        return true;
-    }
-    return false;
+    (lo == input.lttr) ^ (hi == input.lttr)
 }
 
 
