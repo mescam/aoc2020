@@ -22,7 +22,6 @@ fn parse(contents: &String) -> HashMap<String, HashSet<String>> {
             }
 
             results.get_mut(&from).unwrap().insert(String::from(&target));
-            
         }
     }
 
